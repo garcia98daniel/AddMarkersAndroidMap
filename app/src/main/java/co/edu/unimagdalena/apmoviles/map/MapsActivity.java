@@ -39,8 +39,8 @@ public class MapsActivity  extends FragmentActivity implements OnMapReadyCallbac
         agregar = findViewById(R.id.agregar);
         agregar.setOnClickListener(this);
 
-        ver = findViewById(R.id.ver);
-        ver.setOnClickListener(this);
+        //ver = findViewById(R.id.ver);
+       // ver.setOnClickListener(this);
 
         coor1 = findViewById(R.id.coor1);
         coor2 = findViewById(R.id.coor2);
@@ -87,10 +87,9 @@ public class MapsActivity  extends FragmentActivity implements OnMapReadyCallbac
                     LatLng coordenadas = new LatLng(Double.parseDouble(coor1.getText().toString()), Double.parseDouble(coor2.getText().toString()));
                     arrayCoordenadas.add(coordenadas);
                     Toast.makeText(getApplicationContext(),"Coordenadas ("+coor1.getText().toString()+","+coor2.getText().toString()+") agregadas", Toast.LENGTH_LONG).show();
-                }
-                break;
-            case R.id.ver:
                     mapFragment.getMapAsync(this);
+                    mMap.moveCamera(CameraUpdateFactory.newLatLng(coordenadas));
+                }
                 break;
             default:
                 break;
